@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>培培環台兔子友善餐廳地圖 V3.0</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>培培環台兔子友善餐廳</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="./styles.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -11,30 +12,57 @@
 <header class="siteHeader">
   <div class="brandRow">
     <img class="brandRabbit" src="./images/reserve.png" alt="培培">
-    <div><h1>培培環台兔子友善餐廳地圖 V3.0 管理版</h1><p class="subtitle">跟著培培一起尋找兔兔友善餐廳 🐰✨</p></div>
+    <h1>培培環台兔子友善餐廳 管理版</h1>
   </div>
   <div class="top">
-    <button onclick="fitAll()">🗺️ 全部地圖</button><button onclick="copyPublicTemplate()">Threads 模板</button><button onclick="downloadRecap()">年度回顧圖卡</button>
+    <button onclick="fitAll()">🗺️ 全部地圖</button>
+    <button onclick="copyPublicTemplate()">Threads 模板</button>
+    <button onclick="downloadRecap()">年度回顧圖卡</button>
   </div>
 </header>
-<main class="wrap"><section class="shell">
-  <section class="mapPanel"><div id="map"></div></section>
-  <section class="panel">
-    <div class="kpis">
-      <div class="kpi"><img src="./images/done.png" alt="已攻略"><div><b id="done">0</b><span>已攻略</span></div></div>
-      <div class="kpi"><img src="./images/reserve.png" alt="預約中"><div><b id="reserved">0</b><span>預約中</span></div></div>
-      <div class="kpi"><img src="./images/pending.png" alt="待確認"><div><b id="pending">0</b><span>待確認</span></div></div>
-      <div class="kpi"><img src="./images/todo.png" alt="未攻略"><div><b id="todo">0</b><span>未攻略</span></div></div>
-      <div class="kpi totalKpi"><div><b id="total">0</b><span>總數</span></div></div>
-    </div>
-    <div class="progress"><div id="bar" class="bar"></div></div>
-    <div id="auth"></div><div class="filters">
-      <input id="search" class="search" placeholder="搜尋餐廳、地區、關鍵字" oninput="renderCards()">
-      <select id="region" onchange="renderCards()"><option value="">全部地區</option><option>北部</option><option>中部</option><option>南部</option><option>東部</option></select>
-      <select id="status" onchange="renderCards()"><option value="">全部狀態</option><option>待確認</option><option>預約中</option><option>已攻略</option><option>未攻略</option></select><button id="seed" class="hidden" onclick="seedData()">初始化／匯入 7 筆資料</button>
-    </div><textarea id="template" class="template" placeholder="套用模板後會出現在這裡"></textarea>
-    <div id="cards">讀取 Firebase...</div>
+
+<main class="wrap">
+  <section class="shell">
+    <section class="mapPanel"><div id="map"></div></section>
+
+    <section class="panel">
+      <div class="kpis">
+        <div class="kpi">
+          <img src="./images/done.png" alt="已攻略">
+          <div><b id="done">0</b><span>已攻略</span></div>
+        </div>
+        <div class="kpi">
+          <img src="./images/reserve.png" alt="總點數">
+          <div><b id="total">0</b><span>總點數</span></div>
+        </div>
+        <div class="kpi">
+          <img src="./images/pending.png" alt="待確認">
+          <div><b id="pending">0</b><span>待確認</span></div>
+        </div>
+        <div class="kpi">
+          <img src="./images/todo.png" alt="未攻略">
+          <div><b id="todo">0</b><span>未攻略</span></div>
+        </div>
+      </div>
+
+      <div class="progress"><div id="bar" class="bar"></div></div>
+
+      <div id="auth"></div>
+
+      <div class="filters">
+        <input id="search" class="search" placeholder="搜尋餐廳、地區、關鍵字" oninput="renderCards()">
+        <select id="region" onchange="renderCards()">
+          <option value="">全部地區</option><option>北部</option><option>中部</option><option>南部</option><option>東部</option>
+        </select>
+        <select id="status" onchange="renderCards()">
+          <option value="">全部狀態</option><option>待確認</option><option>預約中</option><option>已攻略</option><option>未攻略</option>
+        </select><button id="seed" class="hidden" onclick="seedData()">初始化／匯入 7 筆資料</button>
+      </div>
+
+      <textarea id="template" class="template" placeholder="套用模板後會出現在這裡"></textarea><div id="cards">讀取 Firebase...</div>
+    </section>
   </section>
-</section></main>
+</main>
 <script type="module" src="./app.js"></script>
-</body></html>
+</body>
+</html>
