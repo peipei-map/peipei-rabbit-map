@@ -31,3 +31,23 @@
   right:-48px !important;
   top:2px !important;
 }
+
+
+/* V3.2：地圖 Marker 只保留圖示，移除狀態文字與編號 */
+.markerNum,
+.statusLabel{
+  display:none !important;
+}
+
+.markerWrap{
+  position:relative;
+  display:grid;
+  place-items:center;
+}
+
+.markerImg{
+  width:48px !important;
+  height:48px !important;
+  object-fit:contain;
+  filter:drop-shadow(0 5px 7px rgba(0,0,0,.28));
+}

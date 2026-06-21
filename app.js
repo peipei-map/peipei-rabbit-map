@@ -9,7 +9,7 @@ const $=id=>document.getElementById(id);
 function statusImage(s){return s==="已攻略"?"./images/done.png":s==="預約中"?"./images/reserve.png":s==="待確認"?"./images/pending.png":s==="未攻略"?"./images/todo.png":"./images/pending.png"}
 function labelClass(s){return s==="已攻略"?"labelDone":s==="預約中"?"labelReserve":s==="待確認"?"labelPending":"labelTodo"}
 function pill(s){return s==="已攻略"?"pdone":s==="預約中"?"preserve":s==="未攻略"?"ptodo":"ppending"}
-function icon(p){return L.divIcon({html:`<div class="markerWrap"><img class="markerImg" src="${statusImage(p.status)}" alt="${p.status}"><span class="statusLabel ${labelClass(p.status)}">${p.status}</span></div>`,className:"",iconSize:[66,58],iconAnchor:[23,29],popupAnchor:[0,-30]})}
+function icon(p){return L.divIcon({html:`<div class="markerWrap"><img class="markerImg" src="${statusImage(p.status)}" alt="${p.status}"></div>`,className:"",iconSize:[56,56],iconAnchor:[28,28],popupAnchor:[0,-28]})}
 function initMap(){map=L.map("map").setView([23.75,121.05],7);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);layer=L.layerGroup().addTo(map)}
 function renderMarkers(){layer.clearLayers();markers={};for(const p of places){const m=L.marker([+p.lat,+p.lng],{icon:icon(p)}).addTo(layer);m.bindPopup(`<b>${p.id}. ${p.name}</b><br>📍 ${p.address}<br>☎️ ${p.phone||"待補"}<br>🐰 ${p.rabbit_note||""}<br><br><a href="${p.google_maps}" target="_blank">開啟 Google 地圖</a>`);m.on("click",()=>$("card-"+p.id)?.scrollIntoView({behavior:"smooth",block:"center"}));markers[p.id]=m}}
 window.fitAll=()=>{const g=L.featureGroup(Object.values(markers));if(g.getLayers().length)map.fitBounds(g.getBounds().pad(.18))}
