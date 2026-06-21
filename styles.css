@@ -29,3 +29,61 @@ input,select,textarea{border:1px solid var(--line);border-radius:12px;padding:10
 .leaflet-marker-icon{background:transparent!important;border:0!important}
 @media(max-width:1160px){.shell{grid-template-columns:1fr}.mapPanel{height:680px}.panel{max-height:780px}.card{grid-template-columns:86px 1fr}.actions{grid-column:2;justify-content:flex-start;min-width:0}.kpis{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){.siteHeader{align-items:flex-start;flex-direction:column;padding:14px 18px}h1{font-size:25px}.wrap{padding:0}.shell{border-radius:0}.mapPanel{height:560px}.search{min-width:100%}.kpis{grid-template-columns:repeat(2,1fr)}}
+
+
+/* V2.5 final KPI + marker refinements */
+.kpi{
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:12px !important;
+  text-align:left;
+}
+
+.kpiIcon{
+  font-size:30px;
+  line-height:1;
+  flex:0 0 auto;
+}
+
+.kpi > div{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.kpi b{
+  font-size:30px;
+  line-height:1;
+}
+
+.kpi span{
+  margin-top:4px;
+}
+
+.markerIcon{
+  width:54px !important;
+  height:54px !important;
+  font-size:30px !important;
+}
+
+.markerNum{
+  right:-24px !important;
+  bottom:1px !important;
+}
+
+.statusLabel{
+  right:-54px !important;
+  top:0 !important;
+}
+
+@media(max-width:760px){
+  .kpi{
+    height:82px !important;
+    gap:10px !important;
+  }
+  .kpiIcon{
+    font-size:26px;
+  }
+}

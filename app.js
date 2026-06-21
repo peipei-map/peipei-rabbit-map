@@ -7,11 +7,11 @@ const ADMIN_EMAIL="a51733123@gmail.com", firebaseConfig={"apiKey": "AIzaSyAteQ0H
 const app=initializeApp(firebaseConfig), db=getFirestore(app), auth=getAuth(app), IS_ADMIN=document.body.dataset.mode==="admin";
 let places=[], map, layer, markers={}, user=null, isAdmin=false;
 const $=id=>document.getElementById(id);
-function statusIcon(s){return s==="已攻略"?"☕":s==="預約中"?"☷":s==="待確認"?"📖":s==="未攻略"?"📍":"•"}
+function statusIcon(s){return s==="已攻略"?"☕":s==="預約中"?"☰":s==="待確認"?"📖":s==="未攻略"?"📍":"•"}
 function bgClass(s){return s==="已攻略"?"bgDone":s==="預約中"?"bgReserve":s==="待確認"?"bgPending":"bgTodo"}
 function labelClass(s){return s==="已攻略"?"labelDone":s==="預約中"?"labelReserve":s==="待確認"?"labelPending":"labelTodo"}
 function pill(s){return s==="已攻略"?"pdone":s==="預約中"?"preserve":s==="未攻略"?"ptodo":"ppending"}
-function icon(p){return L.divIcon({html:`<div class="markerWrap"><div class="markerIcon ${bgClass(p.status)}">${statusIcon(p.status)}</div><span class="statusLabel ${labelClass(p.status)}">${p.status}</span><span class="markerNum">${p.id}</span></div>`,className:"",iconSize:[96,76],iconAnchor:[33,38],popupAnchor:[0,-36]})}
+function icon(p){return L.divIcon({html:`<div class="markerWrap"><div class="markerIcon ${bgClass(p.status)}">${statusIcon(p.status)}</div><span class="statusLabel ${labelClass(p.status)}">${p.status}</span><span class="markerNum">${p.id}</span></div>`,className:"",iconSize:[84,68],iconAnchor:[30,34],popupAnchor:[0,-34]})}
 function initMap(){map=L.map("map").setView([23.75,121.05],7);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap contributors"}).addTo(map);layer=L.layerGroup().addTo(map)}
 function renderMarkers(){layer.clearLayers();markers={};for(const p of places){const m=L.marker([+p.lat,+p.lng],{icon:icon(p)}).addTo(layer);m.bindPopup(`<b>${p.id}. ${p.name}</b><br>📍 ${p.address}<br>☎️ ${p.phone||"待補"}<br>🐰 ${p.rabbit_note||""}<br><br><a href="${p.google_maps}" target="_blank">開啟 Google 地圖</a>`);m.on("click",()=>$("card-"+p.id)?.scrollIntoView({behavior:"smooth",block:"center"}));markers[p.id]=m}}
 window.fitAll=()=>{const g=L.featureGroup(Object.values(markers));if(g.getLayers().length)map.fitBounds(g.getBounds().pad(.18))}
