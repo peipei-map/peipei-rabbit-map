@@ -11,7 +11,7 @@
 <body data-mode="public">
 <header class="siteHeader">
   <div class="brandRow">
-    <div class="logoIcon miniBunny"></div>
+    <div class="logo">🐰</div>
     <h1>培培環台兔子友善餐廳</h1>
   </div>
   <div class="top">
@@ -22,14 +22,14 @@
 </header>
 <main class="wrap">
   <section class="shell">
-    <section class="mapPanel">
-      <div id="map"></div>
-    </section>
+    <section class="mapPanel"><div id="map"></div></section>
     <section class="panel">
       <div class="kpis">
-        <div class="kpi"><span class="kpiArt icon-done"></span><b id="done">0</b><span>已攻略</span></div>
-        <div class="kpi"><span class="kpiArt icon-reserve"></span><b id="total">0</b><span>總點數</span></div>
-        <div class="kpi"><span class="kpiArt icon-pending"></span><b id="cities">0</b><span>已攻略縣市</span></div>
+        <div class="kpi noIcon"><b id="done">0</b><span>已攻略</span></div>
+        <div class="kpi noIcon"><b id="reserved">0</b><span>預約中</span></div>
+        <div class="kpi noIcon"><b id="pending">0</b><span>待確認</span></div>
+        <div class="kpi noIcon"><b id="todo">0</b><span>未攻略</span></div>
+        <div class="kpi noIcon"><b id="total">0</b><span>總數</span></div>
       </div>
       <div class="progress"><div id="bar" class="bar"></div></div>
       <div class="filters">
