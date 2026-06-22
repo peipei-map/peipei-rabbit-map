@@ -201,3 +201,9 @@ input,select,textarea{
   .kpi{height:90px}
   .kpi img{width:48px;height:48px}
 }
+/* V3.5 圖釘放大 */
+
+.todoIcon{
+    transform: scale(1.25);
+    transform-origin:center center;
+}
