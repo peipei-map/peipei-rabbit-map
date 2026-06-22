@@ -13,7 +13,7 @@ function icon(p){
     `,
     className:"",
     iconSize:[110,90],
-    iconAnchor:[32,42],
-    popupAnchor:[0,-40]
+    iconAnchor:[55,45],
+    popupAnchor:[0,-45]
   });
 }
