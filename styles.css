@@ -103,10 +103,7 @@ button,.link{
 
 .kpis{
   display:grid;
-  grid-template-columns:repeat(4,minmax(130px,1fr));
-  gap:12px;
-  margin-bottom:12px;
-}
+  grid-template-columns:repeat(5,minmax(120px,1fr));
 
 .kpi{
   height:106px;
