@@ -108,11 +108,11 @@ button,.link{
   margin-bottom:12px;
 }
 .kpi{
-  height:106px;
+  height:120px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:10px;
   padding:10px;
   background:#fff;
   border:1px solid var(--line);
@@ -121,8 +121,8 @@ button,.link{
 }
 
 .kpi img{
-  width:64px;
-  height:64px;
+  width:88px;
+  height:88px;
   object-fit:contain;
 }
 
@@ -190,7 +190,7 @@ input,select,textarea{
 
 .card{
   display:grid;
-  grid-template-columns:94px 1fr auto;
+  grid-template-columns:130px 1fr auto;
   gap:14px;
   align-items:center;
   background:#fff;
@@ -293,7 +293,7 @@ input,select,textarea{
   }
 
   .card{
-    grid-template-columns:88px 1fr;
+    grid-template-columns:130px 1fr;
   }
 
   .actions{
@@ -344,12 +344,12 @@ input,select,textarea{
   }
 
   .kpi{
-    height:90px;
+    height:120px;
   }
 
   .kpi img{
-    width:64px;
-    height:64px;
+    width:88px;
+    height:88px;
     object-fit:contain;
   }
 }
