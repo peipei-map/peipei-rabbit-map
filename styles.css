@@ -121,8 +121,8 @@ button,.link{
 }
 
 .kpi img{
-  width:48px;
-  height:48px;
+  width:64px;
+  height:64px;
   object-fit:contain;
 }
 
@@ -202,16 +202,16 @@ input,select,textarea{
 }
 
 .thumb{
-  width:82px;
-  height:82px;
+  width:100px;
+  height:100px;
   border-radius:15px;
   display:grid;
   place-items:center;
 }
 
 .thumb img{
-  width:60px;
-  height:60px;
+  width:80px;
+  height:80px;
   object-fit:contain;
 }
 
@@ -348,7 +348,8 @@ input,select,textarea{
   }
 
   .kpi img{
-    width:48px;
-    height:48px;
+    width:64px;
+    height:64px;
+    object-fit:contain;
   }
 }
