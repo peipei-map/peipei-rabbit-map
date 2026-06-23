@@ -190,7 +190,7 @@ input,select,textarea{
 
 .card{
   display:grid;
-  grid-template-columns:130px 1fr auto;
+  grid-template-columns:170px 1fr auto;
   gap:14px;
   align-items:center;
   background:#fff;
@@ -202,16 +202,16 @@ input,select,textarea{
 }
 
 .thumb{
-  width:100px;
-  height:100px;
+  width:160px;
+  height:160px;
   border-radius:15px;
   display:grid;
   place-items:center;
 }
 
 .thumb img{
-  width:80px;
-  height:80px;
+  width:130px;
+  height:130px;
   object-fit:contain;
 }
 
@@ -292,9 +292,6 @@ input,select,textarea{
     max-height:780px;
   }
 
-  .card{
-    grid-template-columns:130px 1fr;
-  }
 
   .actions{
     grid-column:2;
