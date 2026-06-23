@@ -104,7 +104,9 @@ button,.link{
 .kpis{
   display:grid;
   grid-template-columns:repeat(5,minmax(120px,1fr));
-
+  gap:12px;
+  margin-bottom:12px;
+}
 .kpi{
   height:106px;
   display:flex;
