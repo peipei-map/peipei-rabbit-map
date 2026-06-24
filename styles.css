@@ -341,3 +341,12 @@ input,select,textarea{
     white-space:nowrap;
   }
 }
+
+.publicLayout{
+  display:grid;
+  gap:14px;
+  padding:14px;
+  border-radius:22px;
+  border:1px solid #c7edf4;
+  background:linear-gradient(135deg,#d8f5ff,#edfcff);
+}
