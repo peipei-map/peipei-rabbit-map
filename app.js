@@ -90,7 +90,12 @@ function renderMarkers(){
 
 window.fitAll=()=>{
   const g=L.featureGroup(Object.values(markers));
-  if(g.getLayers().length)map.fitBounds(g.getBounds().pad(.18));
+
+  if(g.getLayers().length){
+    map.fitBounds(g.getBounds().pad(.18));
+  }else{
+    map.setView([23.75,121.05],7);
+  }
 }
 
 function countStatus(s){

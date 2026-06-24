@@ -306,66 +306,38 @@ input,select,textarea{
 
 @media(max-width:760px){
 
-  .card{
-    grid-template-columns:80px 1fr;
+  .siteHeader{
+    padding:14px 18px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:12px;
   }
 
-  .thumb{
-    width:70px;
-    height:70px;
-  }
-
-  .thumb img{
-    width:60px;
-    height:60px;
-  }
-
-}
-
-  h1{
-    font-size:25px;
+  .brandRow{
+    gap:10px;
   }
 
   .brandRabbit{
-    width:48px;
-    height:48px;
+    width:42px;
+    height:42px;
   }
 
-  .wrap{
-    padding:0;
+  h1{
+    font-size:24px;
+    line-height:1.2;
   }
 
-  .shell{
-    border-radius:0;
+  .top{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:stretch;
   }
 
-  .mapPanel{
-    height:560px;
+  .top button{
+    padding:9px 14px;
+    font-size:14px;
+    white-space:nowrap;
   }
-
-  .search{
-    min-width:100%;
-  }
-
-  .kpis{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .kpi{
-    height:120px;
-  }
-
-  .kpi img{
-    width:88px;
-    height:88px;
-    object-fit:contain;
-  }
-}
-
-.leaflet-control-attribution{
-  background:rgba(255,255,255,.55)!important;
-  border-radius:8px;
-  padding:2px 6px;
-  font-size:9px;
-  opacity:.65;
 }
