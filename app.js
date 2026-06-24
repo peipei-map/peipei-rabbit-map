@@ -55,12 +55,20 @@ function icon(p){
 }
 
 function initMap(){
-  map=L.map("map").setView([23.75,121.05],7);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
-    maxZoom:19,
-    attribution:"&copy; OpenStreetMap contributors"
-  }).addTo(map);
-  layer=L.layerGroup().addTo(map);
+ map=L.map("map").setView([23.75,121.05],7);
+
+if(window.innerWidth <= 760){
+  map.dragging.disable();
+  map.touchZoom.disable();
+  map.doubleClickZoom.disable();
+  map.scrollWheelZoom.disable();
+  map.boxZoom.disable();
+  map.keyboard.disable();
+
+  if(map.tap){
+    map.tap.disable();
+  }
+}
 }
 
 function renderMarkers(){
