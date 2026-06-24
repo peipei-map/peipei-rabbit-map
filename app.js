@@ -55,20 +55,37 @@ function icon(p){
 }
 
 function initMap(){
- map=L.map("map").setView([23.75,121.05],7);
+  const isMobile = window.innerWidth <= 760;
 
-if(window.innerWidth <= 760){
-  map.dragging.disable();
-  map.touchZoom.disable();
-  map.doubleClickZoom.disable();
-  map.scrollWheelZoom.disable();
-  map.boxZoom.disable();
-  map.keyboard.disable();
+  map=L.map("map",{
+    minZoom:7,
+    maxZoom:18,
+    maxBounds:[
+      [20.8,118.0],
+      [26.5,123.5]
+    ],
+    maxBoundsViscosity:1.0
+  }).setView([23.75,121.05],7);
 
-  if(map.tap){
-    map.tap.disable();
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+    maxZoom:19,
+    attribution:"&copy; OpenStreetMap contributors"
+  }).addTo(map);
+
+  layer=L.layerGroup().addTo(map);
+
+  if(isMobile){
+    map.dragging.disable();
+    map.touchZoom.disable();
+    map.doubleClickZoom.disable();
+    map.scrollWheelZoom.disable();
+    map.boxZoom.disable();
+    map.keyboard.disable();
+
+    if(map.tap){
+      map.tap.disable();
+    }
   }
-}
 }
 
 function renderMarkers(){
@@ -97,13 +114,9 @@ function renderMarkers(){
 }
 
 window.fitAll=()=>{
-  const g=L.featureGroup(Object.values(markers));
-
-  if(g.getLayers().length){
-    map.fitBounds(g.getBounds().pad(.18));
-  }else{
     map.setView([23.75,121.05],7);
-  }
+}
+
 }
 
 function countStatus(s){
@@ -291,14 +304,15 @@ onAuthStateChanged(auth,u=>{
 
 initMap();
 
-onSnapshot(
-  query(collection(db,"restaurants"),orderBy("id")),
-  snap=>{
-    places=snap.docs.map(d=>({id:d.id,...d.data()}));
-    render();
-    if(places.length)fitAll();
-  },
-  e=>{
-    $("cards").innerHTML=`<p>讀取 Firestore 失敗：${e.message}</p>`;
-  }
-);
+onSnapshot(query(collection(db,"restaurants"),orderBy("id")),snap=>{
+  places=snap.docs.map(d=>({id:d.id,...d.data()}));
+  render();
+
+  setTimeout(()=>{
+    map.invalidateSize();
+    fitAll();
+  },300);
+
+},e=>{
+  $("cards").innerHTML=`<p>讀取 Firestore 失敗：${e.message}</p>`;
+});
