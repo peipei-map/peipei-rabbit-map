@@ -22,7 +22,47 @@
 
     <section class="panel">
       <div class="kpis">
-        <!-- 原本五個 KPI 放這裡，不用改內容 -->
+
+        <div class="kpi">
+          <img src="./images/total.png" alt="總數">
+          <div>
+            <b id="total">0</b>
+            <span>總數</span>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <img src="./images/done.png" alt="已攻略">
+          <div>
+            <b id="done">0</b>
+            <span>已攻略</span>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <img src="./images/reserve.png" alt="預約中">
+          <div>
+            <b id="reserved">0</b>
+            <span>預約中</span>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <img src="./images/pending.png" alt="待確認">
+          <div>
+            <b id="pending">0</b>
+            <span>待確認</span>
+          </div>
+        </div>
+
+        <div class="kpi">
+          <img src="./images/todo.png" alt="未攻略">
+          <div>
+            <b id="todo">0</b>
+            <span>未攻略</span>
+          </div>
+        </div>
+
       </div>
 
       <div class="progress">
@@ -30,7 +70,23 @@
       </div>
 
       <div class="filters">
-        <!-- 原本搜尋列、地區、狀態篩選放這裡 -->
+        <input id="search" class="search" placeholder="搜尋餐廳、地區、關鍵字" oninput="renderCards()">
+
+        <select id="region" onchange="renderCards()">
+          <option value="">全部地區</option>
+          <option>北部</option>
+          <option>中部</option>
+          <option>南部</option>
+          <option>東部</option>
+        </select>
+
+        <select id="status" onchange="renderCards()">
+          <option value="">全部狀態</option>
+          <option>待確認</option>
+          <option>預約中</option>
+          <option>已攻略</option>
+          <option>未攻略</option>
+        </select>
       </div>
     </section>
 
