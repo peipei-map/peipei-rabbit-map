@@ -80,8 +80,8 @@ button,.link{
 }
 
 .mapPanel{
-  height:790px;
-  min-height:640px;
+  height:520px;
+  min-height:360px;
   border-radius:18px;
   overflow:hidden;
   background:#d9f6ff;
@@ -344,6 +344,7 @@ input,select,textarea{
 
 .publicLayout{
   display:grid;
+  grid-template-columns:1fr;
   gap:14px;
   padding:14px;
   border-radius:22px;
