@@ -114,10 +114,8 @@ function renderMarkers(){
 }
 
 window.fitAll=()=>{
-    map.setView([23.75,121.05],7);
-}
-
-}
+  map.setView([23.75,121.05],7);
+};
 
 function countStatus(s){
   return places.filter(p=>p.status===s).length;
